@@ -1,4 +1,4 @@
-const fs = require('fs').promises;
+const fs = require('fs-extra');
 const path = require('path');
 const matter = require('gray-matter');
 
@@ -26,7 +26,7 @@ async function updatePostsJson() {
 
     posts.sort((a, b) => b.filename.localeCompare(a.filename));
 
-    await fs.writeFile(postsJsonPath, JSON.stringify(posts, null, 2));
+    await fs.writeJson(postsJsonPath, posts, { spaces: 2 });
     console.log('posts.json 已成功更新');
   } catch (error) {
     console.error('更新 posts.json 时出错:', error);

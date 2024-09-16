@@ -1,9 +1,15 @@
-document.getElementById('theme-toggle').addEventListener('click', function() {
-    document.body.classList.toggle('light-theme');
-    localStorage.setItem('theme', document.body.classList.contains('light-theme') ? 'light' : 'dark');
-});
+document.addEventListener('DOMContentLoaded', () => {
+    const themeToggle = document.getElementById('theme-toggle');
+    const body = document.body;
 
-// 检查本地存储中的主题设置
-if (localStorage.getItem('theme') === 'light') {
-    document.body.classList.add('light-theme');
-}
+    themeToggle.addEventListener('click', () => {
+        body.classList.toggle('light-theme');
+        localStorage.setItem('theme', body.classList.contains('light-theme') ? 'light' : 'dark');
+    });
+
+    // 检查本地存储中的主题设置
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'light') {
+        body.classList.add('light-theme');
+    }
+});

@@ -11,12 +11,13 @@ jobs:
   update-posts:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - name: Use Node.js
-      uses: actions/setup-node@v2
+      uses: actions/setup-node@v3
       with:
-        node-version: '14'
-    - run: npm ci
+        node-version: '20'
+    - name: Install dependencies
+      run: npm ci
     - name: Update posts.json
       run: node update_posts.js
     - name: Commit changes

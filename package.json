@@ -1,7 +1,13 @@
 {
   "name": "github-pages-blog",
   "version": "1.0.0",
+  "scripts": {
+    "update-posts": "node update_posts.js"
+  },
   "dependencies": {
     "gray-matter": "^4.0.3"
+  },
+  "devDependencies": {
+    "fs-extra": "^11.1.1"
   }
 }
