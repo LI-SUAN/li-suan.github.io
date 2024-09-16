@@ -7,11 +7,13 @@ async function loadPosts() {
         posts.forEach(post => {
             const li = document.createElement('li');
             const a = document.createElement('a');
-            a.href = `#${post.filename}`;
+            // 移除文件扩展名
+            const filename = post.filename.replace(/\.md$/, '');
+            a.href = `#${filename}`;
             a.textContent = post.title;
             a.addEventListener('click', (e) => {
                 e.preventDefault();
-                loadPost(post.filename);
+                loadPost(filename);
             });
             li.appendChild(a);
             postList.appendChild(li);
@@ -19,7 +21,7 @@ async function loadPosts() {
 
         // 默认加载第一篇文章
         if (posts.length > 0) {
-            loadPost(posts[0].filename);
+            loadPost(posts[0].filename.replace(/\.md$/, ''));
         }
     } catch (error) {
         console.error('加载文章列表时出错:', error);
@@ -28,6 +30,7 @@ async function loadPosts() {
 
 async function loadPost(filename) {
     try {
+        // 不添加 .md 扩展名
         const response = await fetch(`posts/${filename}`);
         const content = await response.text();
         const converter = new showdown.Converter();
