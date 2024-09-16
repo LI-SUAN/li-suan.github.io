@@ -1,6 +1,7 @@
 :root {
     --bg-color: #1a1a1a;
     --text-color: #e0e0e0;
+    --primary-color: #4a9ae1;
 }
 
 body {
@@ -10,13 +11,38 @@ body {
     line-height: 1.6;
     margin: 0;
     padding: 20px;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 a {
-    color: #4a9ae1;
+    color: var(--primary-color);
 }
 
 .light-theme {
     --bg-color: #f0f0f0;
     --text-color: #333333;
+    --primary-color: #2980b9;
+}
+
+#theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+}
+
+.sun-icon, .moon-icon {
+    width: 24px;
+    height: 24px;
+    stroke: var(--text-color);
+}
+
+.light-theme .sun-icon, .moon-icon {
+    display: none;
+}
+
+.light-theme .moon-icon, .sun-icon {
+    display: block;
 }
