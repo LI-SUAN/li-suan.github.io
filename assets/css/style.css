@@ -1,0 +1,22 @@
+:root {
+    --bg-color: #1a1a1a;
+    --text-color: #e0e0e0;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+}
+
+a {
+    color: #4a9ae1;
+}
+
+.light-theme {
+    --bg-color: #f0f0f0;
+    --text-color: #333333;
+}
