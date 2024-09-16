@@ -64,6 +64,7 @@ a {
     padding: 20px;
     transition: margin-left 0.3s;
     position: relative; /* 为主题切换按钮定位 */
+    padding-top: 60px; /* 增加顶部填充以确保图标与正文之间有足够的距离 */
 }
 
 #resize-handle {
@@ -281,6 +282,37 @@ body.light-theme .token.variable {
 }
 
 /* 在文件末尾添加以下内容 */
+
+#menu-toggle {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1000; /* 确保按钮在最上层 */
+}
+
+.menu-icon {
+    width: 20px; /* 调整图标大小 */
+    height: 20px;
+    stroke: var(--text-color);
+    fill: none; /* 确保没有填充 */
+}
+
+#sidebar.collapsed {
+    width: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+#main-content.expanded {
+    margin-left: 0;
+}
+
+#resize-handle.hidden {
+    display: none;
+}
 
 #search-input {
     width: calc(100% - 20px); /* 减去左右padding的宽度 */
