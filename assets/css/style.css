@@ -328,3 +328,29 @@ body.light-theme .token.variable {
     color: var(--text-color);
     opacity: 0.7;
 }
+
+/* ... 现有的样式 ... */
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+main {
+    /* 移除独立的背景颜色和边框 */
+    color: var(--text-color); /* 使用主题文本颜色 */
+    padding: 20px;
+}
+
+/* 确保正文下面的空间背景颜色一致 */
+footer {
+    background-color: var(--bg-color); /* 使用主题背景颜色 */
+    color: var(--text-color); /* 使用主题文本颜色 */
+    padding: 20px;
+    text-align: center;
+}
