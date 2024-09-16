@@ -56,6 +56,7 @@ a {
     background-color: var(--bg-color);
     padding: 20px;
     overflow-y: auto;
+    box-sizing: border-box; /* 确保padding不会增加总宽度 */
 }
 
 #main-content {
@@ -77,15 +78,21 @@ a {
 #post-list {
     list-style-type: none;
     padding: 0;
+    margin: 0;
+    width: 100%;
 }
 
 #post-list li {
     margin-bottom: 10px;
+    width: 100%;
 }
 
 #post-list a {
     text-decoration: none;
     color: var(--text-color);
+    display: block;
+    width: 100%;
+    padding: 5px 0;
 }
 
 #post-list a:hover {
@@ -271,4 +278,21 @@ body.light-theme .token.regex,
 body.light-theme .token.important,
 body.light-theme .token.variable {
     color: #e90;
+}
+
+/* 在文件末尾添加以下内容 */
+
+#search-input {
+    width: calc(100% - 20px); /* 减去左右padding的宽度 */
+    padding: 8px 10px;
+    margin-bottom: 10px;
+    border: 1px solid var(--text-color);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    box-sizing: border-box; /* 确保padding不会增加总宽度 */
+}
+
+#search-input::placeholder {
+    color: var(--text-color);
+    opacity: 0.7;
 }

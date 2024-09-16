@@ -5,15 +5,7 @@ async function loadPosts() {
         const postList = document.getElementById('post-list');
         
         posts.forEach(post => {
-            const li = document.createElement('li');
-            const a = document.createElement('a');
-            a.href = `#${post.filename}`;
-            a.textContent = post.title;
-            a.addEventListener('click', (e) => {
-                e.preventDefault();
-                loadPost(post.filename);
-            });
-            li.appendChild(a);
+            const li = createPostListItem(post);
             postList.appendChild(li);
         });
 
@@ -26,9 +18,21 @@ async function loadPosts() {
     }
 }
 
+function createPostListItem(post) {
+    const li = document.createElement('li');
+    const a = document.createElement('a');
+    a.href = `#${post.filename}`;
+    a.textContent = post.title;
+    a.addEventListener('click', (e) => {
+        e.preventDefault();
+        loadPost(post.filename);
+    });
+    li.appendChild(a);
+    return li;
+}
+
 async function loadPost(filename) {
     try {
-        // 添加 .md 扩展名
         const response = await fetch(`posts/${filename}.md`);
         const content = await response.text();
         const converter = new showdown.Converter();
