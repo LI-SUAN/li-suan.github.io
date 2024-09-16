@@ -3,7 +3,7 @@ const path = require('path');
 const matter = require('gray-matter');
 
 async function updatePostsJson() {
-  const postsDir = '_posts';
+  const postsDir = 'posts';
   const postsJsonPath = 'posts.json';
 
   try {

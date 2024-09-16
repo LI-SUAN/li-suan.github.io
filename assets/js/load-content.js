@@ -28,7 +28,7 @@ async function loadPosts() {
 
 async function loadPost(filename) {
     try {
-        const response = await fetch(`_posts/${filename}`);
+        const response = await fetch(`posts/${filename}`);
         const content = await response.text();
         const converter = new showdown.Converter();
         const html = converter.makeHtml(content);

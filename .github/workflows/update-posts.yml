@@ -5,15 +5,15 @@ on:
     branches:
       - main  # 或者您的默认分支名称
     paths:
-      - '_posts/**'  # 仅在 _posts 目录有变化时触发
+      - 'posts/**'  # 仅在 posts 目录有变化时触发
 
 jobs:
   update-posts:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - name: Use Node.js
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@v4
       with:
         node-version: '20'
     - name: Install dependencies
