@@ -3,6 +3,16 @@ import json
 import re
 from datetime import datetime
 
+import subprocess
+import atexit
+
+def execute_git_commands():
+    subprocess.call(['git', 'add', '.'])
+    subprocess.call(['git', 'commit', '-m', 'none'])
+    subprocess.call(['git', 'push'])
+
+atexit.register(execute_git_commands)
+
 # 定义posts文件夹路径和posts.json文件路径
 posts_folder = 'posts'
 posts_json = 'posts.json'
@@ -33,7 +43,7 @@ for post_file in posts_files:
     })
 
 # 按照文件名中的日期倒序排序
-posts_data.sort(key=lambda x: datetime.strptime(x['filename'], '%Y-%m-%d-%H'), reverse=True)
+posts_data.sort(key=lambda x: datetime.strptime(x['filename'], '%Y-%m-%d-%H%M'), reverse=True)
 
 # 将结果写入posts.json文件
 with open(posts_json, 'w', encoding='utf-8') as json_file:
