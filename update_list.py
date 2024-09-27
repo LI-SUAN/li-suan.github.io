@@ -49,4 +49,4 @@ posts_data.sort(key=lambda x: datetime.strptime(x['filename'], '%Y-%m-%d-%H%M'),
 with open(posts_json, 'w', encoding='utf-8') as json_file:
     json.dump(posts_data, json_file, ensure_ascii=False, indent=4)
 
-print("posts.json 文件已更新")
+print("posts.json has been updated")
